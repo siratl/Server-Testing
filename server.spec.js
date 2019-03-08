@@ -3,7 +3,7 @@ const request = require('supertest');
 const server = require('./api/server.js');
 
 describe('POST /users/:username', () => {
-  it('should add the person', async () => {
+  it('should add the user', async () => {
     const username = 'sirATL';
     const expected = { Username: 'sirATL' };
 
@@ -20,7 +20,7 @@ describe('POST /users/:username', () => {
     expect(response.status).toBe(200);
   });
 
-  it('should return JSON', async () => {
+  it('should return a JSON type', async () => {
     const username = 'sirATL';
     const response = await request(server).post(`/users/${username}`);
 
@@ -29,7 +29,7 @@ describe('POST /users/:username', () => {
 });
 
 describe('DELETE /users/:username', () => {
-  it('should delete the specified person', async () => {
+  it('should delete the specified user', async () => {
     const username = 'sirATL';
     const expected = { deleted: `${username}` };
 
@@ -45,7 +45,7 @@ describe('DELETE /users/:username', () => {
 
     expect(response.status).toBe(200);
   });
-  it('should return JSON', async () => {
+  it('should return a JSON type', async () => {
     const username = 'sirATL';
     const response = await request(server).delete(`/users/${username}`);
 
